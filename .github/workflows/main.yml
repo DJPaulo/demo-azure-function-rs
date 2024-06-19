@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  AZURE_FUNCTIONAPP_NAME: 'DemoRustFunctionApp'
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -29,5 +33,5 @@ jobs:
       - name: Deploy to Azure Function App
         uses: Azure/functions-action@v1
         with:
-          app-name: DemoRustFunctionApp
-          package: .
+          app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
