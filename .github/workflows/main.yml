@@ -31,3 +31,4 @@ jobs:
         with:
           app-name: DemoRustFunctionApp
           package: ./target/release
+          
