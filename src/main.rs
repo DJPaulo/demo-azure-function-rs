@@ -20,7 +20,7 @@ async fn main() {
                 let x = text.len();
                 Response::builder().body(format!("The text you passed is {} characters long.", x))
             },
-            None => Response::builder().body(String::from("Pass in some text and the number of characters will be returned. ie. Add '?text=Your text here' to the end of the url")),
+            None => Response::builder().body(String::from("*AUTOMATED DEPLOYMENT* Pass in some text and the number of characters will be returned. ie. Add '?text=Your text here' to the end of the url")),
         });
 
     let port_key = "FUNCTIONS_CUSTOMHANDLER_PORT";
