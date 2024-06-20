@@ -17,11 +17,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       
-      - name: Log in to Azure
-        uses: azure/login@v2
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
       - name: Set up Rust
         uses: actions-rs/toolchain@v1
         with:
@@ -29,6 +24,14 @@ jobs:
 
       - name: Build Rust function
         run: cargo build --release --all-features
+
+      - name: Move executable to root folder
+        run: mv ./target/release/handler .
+
+      - name: Log in to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure Function App
         uses: Azure/functions-action@v1

@@ -11,5 +11,8 @@ __queuestorage__
 __azurite_db*__.json
 
 # Added by cargo
-
 /target
+
+# Executables
+handler
+handler.exe
